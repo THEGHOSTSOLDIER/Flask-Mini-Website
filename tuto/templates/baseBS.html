@@ -35,10 +35,15 @@
                       <a class="nav-link disabled">Disabled</a>
                     </li>
                   </ul>
-                  <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
+                  <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.is_authenticated %}
+                    <li><a class="nav-link disabled" style="color:aliceblue">{{ current_user.username }}</a></li>
+                    <li><a href="{{ url_for('logout') }}">
+                       <button class="btn btn-outline-success">Logout</button>
+                        </a>
+                    </li>
+                    {% endif %}
+                 </ul>
                 </div>
               </div>
             </nav>
