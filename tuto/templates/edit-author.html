@@ -1,0 +1,32 @@
+{% extends "baseBS.html" %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}"> 
+{% endblock %}
+{% block content %}
+<h1>Edit author : {{author.name}}</h1>
+<form method="POST" action="{{ url_for('save_author')}}">
+    {{ form.hidden_tag() }}
+    <div class=
+	 {% if form.name.errors %}
+	 	"form-group has-errors"
+	 {% else %}
+		"form-group"
+	{% endif %}
+	>
+ 
+        {{ form.name.label }}
+        {{ form.name(size=25,class_="form-control") }}
+    </div>
+    {% if form.name.errors %}
+	<ul class="list-group">
+		{% for e in form.name.errors %}
+			<li class="list-group-item list-group-item-danger">
+				{{e}}
+			</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+    <input classs="btn btn-default" type="submit" value="Enregistrer">
+</form>
+{% endblock %}
