@@ -22,3 +22,4 @@ app.config['SQLALCHEMY_DATABASE_URI'] = ('sqlite:///'
 app.config['SECRET_KEY'] = "1f133d3c-998f-4e70-8313-905d5169d5fe"
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
+login_manager.login_view = "login"
