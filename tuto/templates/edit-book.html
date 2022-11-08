@@ -1,0 +1,58 @@
+{% extends "baseBS.html" %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}"> 
+{% endblock %}
+{% block content %}
+<h1>Edit book : {{book.name}}</h1>
+<form method="POST" action="{{ url_for('save_book')}}">
+    {{ form.hidden_tag() }}
+ 
+        {{ form.title.label }}
+        {{ form.title(size=25,class_="form-control") }}
+        {{ form.price.label }}
+        {{ form.price(size=25,class_="form-control") }}
+        {{ form.url.label }}
+        {{ form.url(size=25,class_="form-control") }}
+        {{ form.author_id.label }}
+        {{ form.author_id(size=25,class_="form-control") }}
+
+    {% if form.title.errors %}
+	<ul class="list-group">
+		{% for e in form.title.errors %}
+			<li class="list-group-item list-group-item-danger">
+				{{e}}
+			</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+    {% if form.price.errors %}
+	<ul class="list-group">
+		{% for e in form.price.errors %}
+			<li class="list-group-item list-group-item-danger">
+				{{e}}
+			</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+    {% if form.url.errors %}
+	<ul class="list-group">
+		{% for e in form.url.errors %}
+			<li class="list-group-item list-group-item-danger">
+				{{e}}
+			</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+    {% if form.author_id.errors %}
+	<ul class="list-group">
+		{% for e in form.author_id.errors %}
+			<li class="list-group-item list-group-item-danger">
+				{{e}}
+			</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+    <input classs="btn btn-default" type="submit" value="Enregistrer">
+</form>
+{% endblock %}

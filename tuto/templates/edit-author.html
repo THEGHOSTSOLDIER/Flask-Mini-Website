@@ -7,17 +7,11 @@
 <h1>Edit author : {{author.name}}</h1>
 <form method="POST" action="{{ url_for('save_author')}}">
     {{ form.hidden_tag() }}
-    <div class=
-	 {% if form.name.errors %}
-	 	"form-group has-errors"
-	 {% else %}
-		"form-group"
-	{% endif %}
-	>
+
  
         {{ form.name.label }}
         {{ form.name(size=25,class_="form-control") }}
-    </div>
+
     {% if form.name.errors %}
 	<ul class="list-group">
 		{% for e in form.name.errors %}
