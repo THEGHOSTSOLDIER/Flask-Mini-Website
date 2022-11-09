@@ -10,9 +10,9 @@ Python (3.x.x) with [virtualvenv](https://pypi.org/project/virtualenv/) installe
 
 ### Set up the project
 
-Create your virtualenv (virtual environment) with the following command, `python -m venv venv`
+Create your virtualenv (virtual environment) with the following command, `python -m venv venv` in a shell (if you had Python in PATH)
 
-Execute : `python -m venv venv` in a shell (if you had Python in PATH).
+Activate your virualenv:
 
 For Windows and VSC users only : `venv\Scripts\activate`
 
