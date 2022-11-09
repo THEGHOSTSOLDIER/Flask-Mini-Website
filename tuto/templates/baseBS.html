@@ -27,14 +27,16 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                   <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      <a class="nav-link active" href="{{ url_for('home') }}" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#">Link</a>
                     </li>
+                    {% if not current_user.is_authenticated %}
                     <li class="nav-item">
-                      <a class="nav-link disabled">Disabled</a>
+                      <a class="nav-link active" href="{{ url_for('login') }}">Login</a>
                     </li>
+                    {% endif %}
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_authenticated %}
@@ -60,7 +62,7 @@
         </main>
         <footer class="footer mt-auto py-3 bg-light">
             <div class="container">
-              <span class="text-muted">Place sticky footer content here.</span>
+              <span class="text-muted">Hello World.</span>
             </div>
           </footer>
         {% block scripts %}

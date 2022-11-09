@@ -146,6 +146,16 @@ def edit_book(id=None):
         book=a,form=f
     )
 
+@app.route("/delete/book/")
+@app.route("/delete/book/<int:id>")
+@login_required
+def delete_book(id=None):
+    if id is not None:
+        a = get_book_detail(int(id))
+        db.session.delete(a)
+        db.session.commit()
+    return redirect(url_for('home'))
+
 @app.route("/save/book/",methods=("POST",))
 def save_book():
     f = BookForm()
